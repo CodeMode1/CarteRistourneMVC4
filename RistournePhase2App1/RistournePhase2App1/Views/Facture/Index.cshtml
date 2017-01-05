@@ -1,0 +1,105 @@
+﻿@model IEnumerable<RistournePhase2App1.Models.FactureViewModel>
+@using System.Linq;
+
+@{
+    ViewBag.Titre = "Facture";
+}
+
+<h2>@ViewBag.Titre pour la commande @ViewBag.CommandeId</h2>
+<h3>de la Campagne : @ViewBag.NomCampagne</h3>
+<h2>Ma commande personnelle # @ViewBag.monNbCommandes</h2>
+
+
+<table>
+    <tr>
+        <th>Somme À Payer</th>
+        <th>No De Facture</th>
+        <th>Date</th>
+        <th>Date D'Échéance</th>
+        <th>Date Livraison</th>
+        <th>Supporteur</th>
+        <th>Mode Paiement</th>
+        <th>Suivi</th>
+        <th>Lieu Livraison</th>
+        <th>Ristourne</th>
+    </tr>
+    <tr>
+        <td>@ViewBag.MontantTotal.00$</td>
+        <td>@ViewBag.NoFacture</td>
+        <td>@ViewBag.Date</td>
+        <td>@ViewBag.DateLimite</td>
+        <td>@ViewBag.DateLivraison</td>
+        <td>@ViewBag.Supporteur</td>
+        <td>@ViewBag.ModePaiement</td>
+        <td>@ViewBag.Suivi</td>
+        <td>@ViewBag.LieuLivraison</td>
+        <td>@ViewBag.RistourneTotal$</td>
+    </tr>
+</table>
+
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantite) (Nb Cartes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Produit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrixUnitaire)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Montant)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ristourne) (%)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RistourneMontant) ($)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td style="text-align:center;">
+                @Html.DisplayFor(modelItem => item.Quantite)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Produit)
+            </td>
+            <td style="text-align:center;">
+                @Html.DisplayFor(model => item.PrixUnitaire).00$
+            </td>
+            <td style="text-align:center;">
+                @Html.DisplayFor(model => item.Montant).00$
+            </td>
+            <td style="text-align:center;">
+                @Html.DisplayFor(model => item.Ristourne)%
+            </td>
+            <td style="text-align:center;">
+                @Html.DisplayFor(model => item.RistourneMontant)$
+            </td>
+        </tr>
+    }
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td style="border-top: 1px solid black;">@ViewBag.MontantTotal.00$</td>
+        <td></td>
+        <td style=" text-align:center;border-top: 1px solid black;">@ViewBag.RistourneTotal$</td>
+    </tr>
+</table>
+
+<div>
+    @Html.ActionLink("Retour Dashboard", "Index", "Dashboard")
+</div>

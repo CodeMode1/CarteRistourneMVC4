@@ -1,0 +1,117 @@
+﻿@model RistournePhase2App1.Models.Supporteur
+
+@{
+    ViewBag.Titre = "Créez votre Compte";
+}
+
+<h2>@ViewBag.Titre</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Supporteur</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Nom)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Nom)
+            @Html.ValidationMessageFor(model => model.Nom)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Prenom)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Prenom)
+            @Html.ValidationMessageFor(model => model.Prenom)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MotPasse)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MotPasse)
+            @Html.ValidationMessageFor(model => model.MotPasse)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Courriel)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Courriel)
+            @Html.ValidationMessageFor(model => model.Courriel)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Rue)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Rue)
+            @Html.ValidationMessageFor(model => model.Rue)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Ville)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Ville)
+            @Html.ValidationMessageFor(model => model.Ville)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CodePostal)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CodePostal)
+            @Html.ValidationMessageFor(model => model.CodePostal)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Telephone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Telephone)
+            @Html.ValidationMessageFor(model => model.Telephone)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ChoixQuestion)
+        </div>
+
+        <div class="editor-label">
+            @Html.DropDownListFor(model => model.ChoixQuestion, new SelectList(ViewBag.Questions, "ChoixQuestion"))
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ReponseQuestion)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ReponseQuestion)
+            @Html.ValidationMessageFor(model => model.ReponseQuestion)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SouvenirMoi)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SouvenirMoi)
+            @Html.ValidationMessageFor(model => model.SouvenirMoi)
+        </div>
+
+        <p>
+            <input type="submit" value="Créer" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Retour Accueil", "Index", "Accueil")
+</div>
+
+@section Scripts {
+
+}

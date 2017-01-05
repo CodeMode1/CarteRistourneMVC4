@@ -1,0 +1,50 @@
+﻿@model RistournePhase2App1.Models.Organisme
+
+@{
+    ViewBag.Titre = "Choisir une Campagne";
+    
+}
+
+<h2>@ViewBag.Titre</h2>
+
+<div class="display-label">
+    @Html.DisplayNameFor(model => model.Nom) Organisme : 
+</div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.Nom)
+</div>
+
+<hr />
+<section>
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Campagnes)
+            </th>
+            <th>
+               <h4>Ses Participants</h4>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                @foreach (var campagne in Model.Campagnes)
+                {
+                    <p>
+                        @campagne.Nom
+                    </p>
+                }
+            </td>
+            <td>
+                @foreach (var campagne in Model.Campagnes)
+                {
+                    <p>
+                        @Html.ActionLink("Voir Participants", "ChoisirParticipant", new { id = campagne.Id })
+                        @Html.ActionLink("Créer Participant", "CreerParticipant", new { id = campagne.Id })
+                    </p>
+                }
+
+            </td>
+        </tr>
+    </table>
+    @Html.ActionLink("Retour Liste Organismes", "Index", "Organisme")
+</section>

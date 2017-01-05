@@ -1,0 +1,91 @@
+﻿@model RistournePhase2App1.Models.Supporteur
+
+@{
+    ViewBag.Titre = "Détails Compte";
+}
+
+<h2>@ViewBag.Titre</h2>
+
+<fieldset>
+    <legend>Supporteur</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Nom)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nom)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Prenom)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Prenom)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MotPasse)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MotPasse)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Courriel)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Courriel)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Rue)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Rue)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Ville)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Ville)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CodePostal)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CodePostal)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Telephone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Telephone)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ChoixQuestion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ChoixQuestion)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ReponseQuestion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReponseQuestion)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SouvenirMoi)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SouvenirMoi)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Retour Dashboard", "Index", "Dashboard")
+</p>

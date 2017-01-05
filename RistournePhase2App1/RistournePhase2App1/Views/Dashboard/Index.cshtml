@@ -1,0 +1,52 @@
+﻿@model RistournePhase2App1.Models.Supporteur
+
+@{
+    ViewBag.Title = "Index";
+    ViewBag.NbPart = Model.Participants.Count();
+}
+
+<h2 style="float: left; background-color:#0094ff;">Dashboard du Supporteur : @Model.Prenom @Model.Nom</h2>
+
+<section style="clear: both;">
+    <div>
+        <h4>@Html.ActionLink("Choisir un Participant", "Index", "Organisme")</h4>
+    </div>
+    <div>
+        <h4>@Html.ActionLink("Historique Mes Commandes", "Index", "HistoriqueCommande")</h4>
+    </div>
+    <div>
+        <h4>@Html.ActionLink("Mon Compte", "Details", "Supporteur", new { id = Model.Id}, null)</h4>
+    </div>
+    <div>
+        <h4>@Html.ActionLink("Modifier Mon Compte", "Edit", "Supporteur", new { id = Model.Id }, null)</h4>
+    </div>
+</section>
+
+<table>
+    <tr>
+        <th>
+            <h2>Passer des Commandes</h2>
+            <h3>Mes participants</h3>
+            <p>Vous avez @ViewBag.NbPart participants : </p>
+        </th>
+    </tr>
+    <tr>
+        <td>
+            @{
+                var i = 0;
+            }
+            @foreach (var participant in Model.Participants)
+            {
+                i += 1;
+                <p>
+                    #@i : @participant.Nom, @participant.Prenom, @participant.Courriel, @participant.Telephone
+                </p>
+                <h4>Ses Campagnes : </h4>
+                foreach (var campagne in participant.Campagnes)
+                {
+                    <p>@Html.ActionLink("Passer une commande", "Commande", new { id = campagne.Id })</p>
+                }
+            }
+        </td>
+    </tr>
+</table>

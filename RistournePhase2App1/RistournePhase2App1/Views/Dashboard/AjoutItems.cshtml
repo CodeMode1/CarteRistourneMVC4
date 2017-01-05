@@ -1,0 +1,95 @@
+﻿@model IEnumerable<RistournePhase2App1.Models.Item>
+@using System.Linq
+
+@{
+    ViewBag.Titre = "Ajout Items à ma Commande";
+}
+
+<h2>Choisir des Produits</h2>
+<h4>Produits Disponibles :</h4>
+
+
+<h2>@ViewBag.Titre : # @ViewBag.monNbCommandes</h2>
+
+@foreach (var produit in ViewBag.listeProduits)
+{
+    <div style="float: left; width:150px; height: 200px;">
+        <img style="width:150px; height: 109px;" src="@produit.imageUrl" alt="image'@produit.Nom'" />
+        <p>@Html.ActionLink("Ajouter Produit : ", "ChoisirProduit", new { id = produit.Id, commandeId = ViewBag.CommandeId })</p>
+        <p>@produit.Nom, @produit.Rabais %</p>
+    </div>
+}
+
+<section style="clear: both; float: left;">
+    @if (!Model.Any())
+    {
+        <div style="border: 2px solid red">
+            <p>Aucuns Items dans votre commande.</p>
+            <p>Veuillez choisir des Produits.</p>
+        </div>
+    }
+
+    else
+    {
+        <table>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nom)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Quantite)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Montant)
+                </th>
+                <th>
+                    Montant ($)
+                </th>
+                <th></th>
+            </tr>
+            @{ var montantTotal = 0; }
+            @{ double ristourneTotal = 0; }
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantite)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Montant).00 $
+                    </td>
+                    <td> @(item.Quantite * item.Montant).00$</td>
+                    <td>
+                        @Html.ActionLink("Editer", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Détails", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("Supprimer", "Delete", new { id = item.Id, commandeId = ViewBag.CommandeId })
+                    </td>
+                </tr>
+                montantTotal += item.Quantite * item.Montant;
+                ristourneTotal += (item.Quantite * item.Produit.PrixUnitaire) * ((double)item.Produit.Rabais / (double)100);
+            }
+            <tr>
+                <th>
+                    Ristourne ($) : 
+                </th>
+                <td>
+                    @ristourneTotal$
+                </td>
+                <th>
+                    Montant Total ($) :
+                </th>
+                <td>
+                    @montantTotal.00$
+                </td>
+            </tr>
+
+        </table>
+    }
+
+</section>
+<section style="clear: both; float: left;">
+    <h4>@Html.ActionLink("Checkout Facture", "Index", "Facture", new { commandeId = ViewBag.CommandeId }, null)</h4>
+</section>

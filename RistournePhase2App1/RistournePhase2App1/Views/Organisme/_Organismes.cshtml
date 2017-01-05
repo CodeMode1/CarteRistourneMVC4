@@ -1,0 +1,24 @@
+﻿@model IPagedList<Organisme>
+
+<div id="listeOrganisme">
+
+    <div class="pagedList" data-otf-target="#listeOrganisme">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }),
+        PagedListRenderOptions.MinimalWithItemCountText)
+    </div>
+    
+    <h4>Les Organismes</h4>
+
+    @foreach (var item in Model)
+    {
+        <div>
+            <h4>@item.Nom</h4>
+            <div>
+                @item.Rue, @item.Ville, @item.CodePostal, @item.Telephone, @item.Telecopieur
+            </div>
+            <div>
+                @Html.ActionLink("Campagne", "ChoisirCampagne", new { id = item.Id })
+            </div>
+        </div>
+    }
+</div>

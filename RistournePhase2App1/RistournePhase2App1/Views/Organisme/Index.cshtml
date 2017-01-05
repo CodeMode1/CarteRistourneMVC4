@@ -1,0 +1,20 @@
+﻿@model IPagedList<Organisme>
+
+@{
+    ViewBag.Titre = "Choisir son Organisme";
+}
+
+<h2>@ViewBag.Titre</h2>
+
+<form method="get" action="@Url.Action("Index")" data-otf-ajax="true" data-otf-target="#listeOrganisme">
+    <input type="search" name="termeRecherche"data-otf-autocomplete="@Url.Action("Autocomplete")" />
+    <input type="submit" value="Recherche par Nom" />
+</form>
+
+@Html.Partial("_Organismes", Model)
+
+<div>
+    <p>
+        @Html.ActionLink("Retour Dashboard", "Index", "Dashboard")
+    </p>
+</div>

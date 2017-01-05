@@ -1,0 +1,71 @@
+﻿@model RistournePhase2App1.Models.Item
+
+@{
+    ViewBag.Titre = "Modifier";
+}
+
+<h2>@ViewBag.Titre Item</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Item</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Nom)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Nom)
+            @Html.ValidationMessageFor(model => model.Nom)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Quantite)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Quantite)
+            @Html.ValidationMessageFor(model => model.Quantite)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Montant)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Montant)
+            @Html.ValidationMessageFor(model => model.Montant)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProduitId)
+        </div>
+
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProduitId)
+            @Html.ValidationMessageFor(model => model.ProduitId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CommandeId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CommandeId)
+            @Html.ValidationMessageFor(model => model.CommandeId)
+        </div>
+
+        <p>
+            <input type="submit" value="Sauvegarder" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Retour Ajout Items", "AjoutItems", new { id = Model.CommandeId })
+</div>
+
+@section Scripts {
+
+}

@@ -1,0 +1,54 @@
+﻿@model RistournePhase2App1.Models.Item
+
+@{
+    ViewBag.Titre = "Supprimer Item";
+}
+
+<h2>@ViewBag.Titre</h2>
+
+<h3>Êtes-vous certain de vouloir supprimer?</h3>
+<fieldset>
+    <legend>Item</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Nom) : 
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nom)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Quantite) : 
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Quantite)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Montant) : 
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Montant)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProduitId) :
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProduitId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CommandeId) : 
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CommandeId)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Supprimer" /> |
+        @Html.ActionLink("Retour Ajout Items", "AjoutItems", new { id = Model.CommandeId })
+    </p>
+}

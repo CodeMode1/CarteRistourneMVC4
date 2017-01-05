@@ -1,0 +1,178 @@
+﻿@{
+    ViewBag.Titre = "Bienvenue";
+    ViewBag.Identification = "Vous êtes loggué :";
+}
+
+<h4>@ViewBag.Identification</h4>
+@if (Session["usagerCourriel"] != null && Session["usagerCourriel"].ToString() != "")
+{
+    var usagerLoggue = Session["usagerCourriel"].ToString();
+    <h3 id="usagerLogue">@usagerLoggue</h3>
+}
+else
+{
+    <h4>Loguez-vous pour commencer!</h4>
+}
+
+<ul>   
+    <li>@Html.ActionLink("À Propos", "APropos", "Accueil")</li>
+    <li>@Html.ActionLink("Contact", "Contact", "Accueil")</li>
+    <li>@Html.ActionLink("S'inscrire", "Create", "Supporteur")</li>
+    <li>@Html.ActionLink("Se Logguer", "Login", "Login")</li>
+</ul>
+
+<script>
+    function showInfo(button, id) {
+        var button = button;
+        var id = id;
+        var infos = document.getElementById(id);
+        if (infos.style.display !== 'none') {
+            infos.style.display = 'none';
+            button.innerHTML = "En Savoir Plus";
+        }
+        else {
+            infos.style.display = 'block';
+            button.innerHTML = "Fermer";
+        }
+    }
+</script>
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Titre</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <h4>
+                Fini la vente de produits !
+                Fini les levées de fonds épuisantes !
+                Fini la sollicitation porte-à-porte !
+                Fini la manipulation d’argent !
+            </h4>
+        </div>
+    </section>
+}
+
+
+<ol class="round">
+    <li class="one">
+        <h5>Comment ?</h5>
+        <a href="https://www.financementalacarte.ca/comment-senregistrer.pdf" target="_blank">S'enregistrer ...</a><br />
+        <a href="https://www.financementalacarte.ca/comment-commander.pdf" target="_blank">Commander ...</a><br />
+        <a href="https://www.financementalacarte.ca/Commentajouterunparticipant.pdf" target="_blank">Ajouter un participant ...</a><br />
+    </li>
+
+    <li class="two">
+        <h5>Ristourne !</h5>
+        <a href="https://www.financementalacarte.ca/PourquoiRISTOURNE.pdf" target="_blank">Pourquoi RISTOURNE ?</a><br />
+        <a href="https://www.financementalacarte.ca/OptionsRISTOURNE.pdf" target="_blank">Options RISTOURNE ?</a><br />
+        <a href="https://www.financementalacarte.ca/comment-transferer.pdf" target="_blank">Transférer mes ristournes ...</a><br />
+    </li>
+
+    <li class="three">
+        <h5>Témoignages</h5>
+        <a href="https://www.financementalacarte.ca/PourquoiRISTOURNE.pdf" target="_blank">S'enregistrer ...</a><br />
+        <a href="https://www.financementalacarte.ca/OptionsRISTOURNE.pdf" target="_blank">Commander ...</a><br />
+        <a href="https://www.financementalacarte.ca/comment-transferer.pdf" target="_blank">Ajouter un participant ...</a><br />
+    </li>
+
+</ol>
+<div id="intro">
+    <h4>Avec Ristourne, financement à la carte :</h4>
+</div>
+<article>
+    <div>
+        <ul>
+            <li>
+                Offre une solution de financement.
+            </li>
+            <li>
+                Permet aux organismes d’amasser facilement et rapidement de bonnes sommes d'argent.
+            </li>
+            <li>
+                Axé sur l’achat de cartes prépayées de marchands populaires.
+            </li>
+            <li>
+                Nous achetons des cartes-cadeaux en grande quantité chez les marchands les plus populaires du Québec.
+            </li>
+        </ul>
+        <button type="button" onclick="showInfo(this, 'one')">En Savoir Plus</button>
+    </div>
+    <img id="sousRistourne" src="../../Images/sousRistourne.png" alt="logoRistourne3" style="width:200px" />
+</article>
+<article id="one">
+    <p>
+        RISTOURNE, financement à la carte, est un programme québécois de levée de fonds axé sur l’achat de cartes prépayées de marchands populaires offrant des produits de consommation quotidienne. Ainsi, faire vos achats quotidiens devient l’occasion de soutenir un ORGANISME et ses PARTICIPANTS sans sortir d’argent supplémentaire de votre portefeuille !
+    </p>
+    <p>
+        Pour ce faire, nous achetons des CARTES-CADEAUX en grande quantité chez les marchands les plus populaires du Québec. Ce volume d’achat nous permet de remettre une moyenne de 3 % de la valeur totale des cartes achetées en RISTOURNE aux ORGANISMES.
+    </p>
+    <p>
+        Par exemple, chaque semaine, un SUPPORTEUR achète 3 cartes d’épicerie de 100 $ par l’entremise de notre boutique en ligne (www.financementalacarte.ca). Il aura donc, chaque semaine, 300 $ à dépenser chez son épicier favori ! Et, SANS DÉPENSER UN SOU DE PLUS, une RISTOURNE (3 % de ses achats) sera remise à l’ORGANISME et au PARTICIPANT qu’il supporte !
+    </p>
+
+</article>
+<article>
+    <div>
+        <ul>
+            <li>
+                Commandez vos cartes prépayées (cartes-cadeaux) en ligne en quelques « clics ».
+            </li>
+            <li>
+                Faites vos achats essentiels quotidiens et financez vos projets.
+            </li>
+            <li>
+                Modes de paiement variés et sécuritaires.
+            </li>
+            <li>
+                Livraison des cartes à votre organisme ou à la maison.
+            </li>
+        </ul>
+        <button type="button" onclick="showInfo(this, 'two')">En Savoir Plus</button>
+    </div>
+    <img id="filleRistourne1" src="../../Images/filleRistourne1.png" alt="logoRistourne2" style="width:200px" />
+</article>
+<article id="two">
+    <p>
+        Permettre de réaliser vos objectifs de levée de fonds le plus efficacement possible !
+    </p>
+    <p>
+        Offrir le plus d’outils possible, par exemple, le « GUIDE du PARTICIPANT », lui permettant de rejoindre facilement des SUPPORTEURS potentiels et ainsi les convaincre de participer.
+    </p>
+    <p>
+        Mettre disponible sur « la page du PARTICIPANT » toutes les informations lui permettant de faire le suivi de sa levée de fonds, des RISTOURNES reçues ou à recevoir, des dates de tombées, etc...
+    </p>
+</article>
+<article>
+    <div>
+        <ul>
+            <li>
+                Financement: écoles, clubs de sport, associations de loisirs et tout autre organisme !
+            </li>
+            <li>
+                Les cartes seront livrées à l’organisme qui s’occupera ensuite de la distribution aux supporteurs.
+            </li>
+            <li>
+                Fini les manipulations d’argent et les gros inventaires de produits pour les administrateurs des campagnes.
+            </li>
+            <li>
+                Les participants sont encouragés à recruter un maximum de « supporteurs » dans leur entourage.
+            </li>
+        </ul>
+        <button type="button" onclick="showInfo(this, 'three')">En Savoir Plus</button>
+    </div>
+    <img id="groupeRistourne" src="../../Images/groupeRistourne.png" alt="groupeRistourne" style="width:200px" />
+</article>
+<article id="three">
+    <p>
+        RISTOURNE, financement à la carte, est parfait pour défrayer les voyages scolaires, les équipes sportives et les clubs de loisirs, les organismes communautaires, les fondations, les frais scolaires, les immobilisations ( ex. terrain de jeu ) et tout autre ORGANISME cherchant à atteindre des objectifs de financement.
+    </p>
+    <p>
+        Les cartes seront livrées à l’ORGANISME qui s’occupera ensuite de la distribution aux SUPPORTEURS. Les RISTOURNES seront remises à l’ORGANISME par chèque. Donc, fini les manipulations d’argent et les gros inventaires de produits pour les ADMINISTRATEURS des campagnes de financement !
+    </p>
+    <p>
+        Les PARTICIPANTS sont encouragés à recruter un maximum de « SUPPORTEURS » dans leur entourage pour ainsi multiplier rapidement leurs profits et atteindre leurs objectifs de financement !
+    </p>
+
+</article>

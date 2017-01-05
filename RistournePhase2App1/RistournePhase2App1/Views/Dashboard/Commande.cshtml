@@ -1,0 +1,90 @@
+﻿@model RistournePhase2App1.Models.Commande
+
+@{
+    ViewBag.Title = "Commande";
+}
+
+<h2>Commande pour la campagne # @ViewBag.campagneId</h2>
+
+@if(ViewBag.campagneNom != null){
+    <p>Commande effectuée pour la campagne :  @ViewBag.campagneNom</p>
+}
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Commande</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Nom)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Nom, new { disabled = "disabled", @readonly = "readonly", style = "width:250px" })
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ModePaiement)
+        </div>
+
+        <div class="editor-label">
+            @Html.DropDownListFor(model => model.ModePaiement, new SelectList(ViewBag.listePaiements, "ModePaiement"))
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateLimite)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.DateLimite, new { disabled = "disabled", @readonly = "readonly", style = "width:250px" })
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Suivi)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.Suivi, new SelectList(ViewBag.listeSuivi, "SuiviComm"), new { style = "width:100px;" })     
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateLivraison)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.DateLivraison, new { disabled = "disabled", @readonly = "readonly", style = "width:250px" })
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateCree)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.DateCree, new { disabled = "disabled", @readonly = "readonly", style = "width:250px" })
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CreePar)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.CreePar, new { disabled = "disabled", @readonly = "readonly", style = "width:250px" })
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LieuLivraison)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.LieuLivraison, new { style = "width:250px" })
+            @Html.ValidationMessageFor(model => model.LieuLivraison)
+        </div>
+
+        <p>
+            <input type="submit" value="Créer ma Commande" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Ajouter des Items à ma Commande", "AjoutItems", "Dashboard", new { id = ViewBag.commandeId }, null)
+</div>
+
+@section Scripts {
+
+}

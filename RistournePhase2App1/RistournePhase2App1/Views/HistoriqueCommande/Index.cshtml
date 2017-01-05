@@ -1,0 +1,70 @@
+﻿@model IEnumerable<RistournePhase2App1.Models.Commande>
+
+@{
+    ViewBag.Titre = "Mes Commandes";
+}
+
+<h2>@ViewBag.Titre</h2>
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModePaiement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateLimite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Suivi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateLivraison)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateCree)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreePar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LieuLivraison)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModePaiement)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateLimite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Suivi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateLivraison)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateCree)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreePar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LieuLivraison)
+        </td>
+    </tr>
+}
+</table>
+
+<div>
+    <h4>@Html.ActionLink("Retour Dashboard", "Index", "Dashboard")</h4>
+</div>

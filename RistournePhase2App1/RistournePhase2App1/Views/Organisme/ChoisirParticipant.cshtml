@@ -1,0 +1,39 @@
+﻿@model RistournePhase2App1.Models.CampagneFinancement
+
+@{
+    ViewBag.Titre = "Choisir Participant";
+}
+
+<h2>@ViewBag.Titre</h2>
+
+
+<div class="display-label">
+    @Html.DisplayNameFor(model => model.Nom) Campagne :
+</div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.Nom)
+</div>
+
+<hr />
+<section>
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Participants)
+            </th>
+        </tr>
+        <tr>
+            <td>
+                @foreach (var participant in Model.Participants)
+                {
+                    <p>
+                        @participant.Nom, @participant.Prenom, @participant.Courriel, @participant.Rue, @participant.Ville,
+                        @participant.CodePostal, @participant.Telephone
+                        @Html.ActionLink("Ajouter À Mes Participants", "AjouterAMesParticipants", new { id = participant.Id })
+                    </p>
+                }
+            </td>
+        </tr>
+    </table>
+    @Html.ActionLink("Retour Liste Organismes", "Index", "Organisme")
+</section>

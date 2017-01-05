@@ -1,0 +1,49 @@
+﻿@model RistournePhase2App1.Models.Item
+
+@{
+    ViewBag.Titre = "Détail Item";
+}
+
+<h2>@ViewBag.Titre</h2>
+
+<fieldset>
+    <legend>Item</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Nom)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nom)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Quantite)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Quantite)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Montant)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Montant)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProduitId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProduitId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CommandeId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CommandeId)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Retour Ajout Items", "AjoutItems", new { id = Model.CommandeId })
+</p>

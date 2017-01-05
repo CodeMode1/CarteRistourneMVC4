@@ -1,0 +1,488 @@
+﻿html {
+    background-color: #e2e2e2;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #a6dbed;
+    border-top: solid 10px #000;
+    color: #333;
+    font-size: .85em;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    margin: 0;
+    padding: 0;
+}
+
+header, footer, nav, hgroup, section {
+    display: block;
+}
+
+a, a:link {
+    color: #0026ff;
+    outline: none;
+    text-decoration: underline;
+}
+
+#usagerLogue{
+    color: #cc0000;
+}
+
+a:visited{
+    color: #2909aa;
+}
+
+a:hover {
+    background-color: #c7d1d6;
+}
+
+mark {
+    background-color: #a6dbed;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#logoRistourne{
+    max-width:100%;
+}
+
+/* site title
+----------------------------------------------------------*/
+.site-title {
+    color: #c8c8c8;
+    font-family: Rockwell, Consolas, "Courier New", Courier, monospace;
+    font-size: 2.3em;
+    margin: 0;
+}
+
+.site-title a, .site-title a:hover, .site-title a:active {
+    background: none;
+    color: #c8c8c8;
+    outline: none;
+    text-decoration: none;
+}
+
+
+/* headers */
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.clear-fix:after {
+    content: ".";
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+    color: #000;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.75em;
+}
+
+h3 {
+    font-size: 1.2em;
+}
+
+h4 {
+    font-size: 1.1em;
+}
+
+h5, h6 {
+    font-size: 1em;
+}
+
+/* main layout
+----------------------------------------------------------*/
+.content-wrapper {
+    margin: 0 auto;
+    max-width: 960px;
+}
+
+#body {
+    background-color: #efeeef;
+    clear: both;
+    padding-bottom: 35px;
+}
+
+.main-content {
+    background: url("../Images/accent.png") no-repeat;
+    padding-left: 10px;
+    padding-top: 30px;
+}
+
+.featured + .main-content {
+    background: url("../Images/heroAccent.png") no-repeat;
+}
+
+header .content-wrapper {
+    padding-top: 20px; 
+}
+
+footer {
+    clear: both;
+    background-color: #7ac0da;
+    font-size: 0.8em;
+    height: 100px;
+}
+
+/* menu
+----------------------------------------------------------*/
+ul#menu {
+    font-size: 1.3em;
+    font-weight: 600;
+    margin: 0 0 1px;
+    text-align: right;
+    width:100%;
+    padding:5% 15% 5% 0;
+}
+
+ul#menu li {
+    display:inline;
+    list-style: none;
+}
+
+ul#menu li a {
+    background: none;
+    color: #999;
+    text-decoration: none;
+}
+
+ul#menu li a:hover {
+    color: #333;
+    text-decoration: none;
+}
+
+/* page elements
+----------------------------------------------------------*/
+/* featured */
+
+.featured .content-wrapper {
+    background-color: #7ac0da;
+    background-image: -o-linear-gradient(left, #7ac0da 0%, #a4d4e6 100%);
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #7ac0da), color-stop(1, #a4d4e6));
+    background-image: -webkit-linear-gradient(left, #7ac0da 0%, #a4d4e6 100%);
+    background-image: linear-gradient(left, #7ac0da 0%, #a4d4e6 100%);
+    color: #3e5667;
+    padding: 20px 40px 30px 40px;
+}
+
+.featured hgroup.title h1, .featured hgroup.title h2 {
+    color: #fff;
+}
+
+.featured p {
+    font-size: 1.1em;
+}
+
+/* page titles */
+hgroup.title {
+    margin-bottom: 10px;
+}
+
+hgroup.title h1, hgroup.title h2 {
+    display: inline;
+}
+
+hgroup.title h2 {
+    font-weight: normal;
+    margin-left: 3px;
+}
+
+/* features */
+section.feature {
+    width: 300px;
+    float: left;
+    padding: 10px;
+}
+
+/* ordered list */
+ol.round {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ol.round li {
+    margin: 25px 0;
+    padding:2% 8% 2%;
+    float:left;
+}
+
+ol.round li a {
+    padding:2%;
+    float:left;
+}
+
+ol.round li.zero {
+    background: url("../Images/orderedList0.png") no-repeat;
+}
+
+ol.round li.one {
+    background: url("../Images/orderedList1.png") no-repeat;
+}
+
+ol.round li.two {
+    background: url("../Images/orderedList2.png") no-repeat;
+}
+
+ol.round li.three {
+    background: url("../Images/orderedList3.png") no-repeat;
+}
+
+ol.round li.four {
+    background: url("../Images/orderedList4.png") no-repeat;
+}
+
+ol.round li.five {
+    background: url("../Images/orderedList5.png") no-repeat;
+}
+
+ol.round li.six {
+    background: url("../Images/orderedList6.png") no-repeat;
+}
+
+ol.round li.seven {
+    background: url("../Images/orderedList7.png") no-repeat;
+}
+
+ol.round li.eight {
+    background: url("../Images/orderedList8.png") no-repeat;
+}
+
+ol.round li.nine {
+    background: url("../Images/orderedList9.png") no-repeat;
+}
+
+/* content */
+#one, #two, #three{
+    margin-top:5%;
+    display:none;
+    clear:both;
+    float:left;
+    width:70%;
+    background-color:#d7f5ff;
+    padding:0;
+}
+article {
+    float: left;
+    width:100%;
+    padding-top:5%;
+}
+
+article div{
+    float:left;
+    width: 70%;
+    background-color:#e1ecf1;
+}
+
+article div li{
+    padding:1.5%;
+}
+
+#filleRistourne1, #sousRistourne, #groupeRistourne{
+    display:block;
+    float:left;
+    padding:1%;
+}
+
+#intro{
+    text-align:center;
+    width:100%;
+    border-bottom: 1.5px solid #7ac0da;
+    clear:both;
+    float:left;
+    margin:0;
+}
+
+aside {
+    float: right;
+    width: 25%;
+    height:auto;
+    padding-left:2%;
+}
+
+aside ul li {
+    background: url("../Images/bullet.png") no-repeat 0 50%;
+    padding: 2px 0 2px 20px;
+}
+
+/* contact */
+.contact h3 {
+    font-size: 1.2em;
+}
+
+.contact p {
+    margin: 5px 0 0 10px;
+}
+
+.contact iframe {
+    border: 1px solid #333;
+    margin: 5px 0 0 10px;
+}
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+
+input, textarea {
+    border: 1px solid #e2e2e2;
+    background: #fff;
+    color: #333;
+    font-size: 1.2em;
+    margin: 5px 0 6px 0;
+    padding: 5px;
+    width: 300px;
+}
+
+input[type="submit"],
+input[type="button"],
+button {
+    background-color: #d3dce0;
+    border: 1px solid #787878;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: 600;
+    margin:2% 0 2% 5%;
+    width: auto;
+    padding: 0.3% 1% 0.3% 1%;
+}
+
+input:focus, textarea:focus {
+    border: 1px solid #7ac0da;
+}
+
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    margin: 1em 0 0 0;
+    font-weight:600;
+}
+
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+/* tables
+----------------------------------------------------------*/
+table {
+    border-collapse: collapse;
+    margin-top: 0.75em;
+    width: 100%;
+    border: 0px none;
+}
+
+table tr{
+    border: 1px solid black;
+}
+
+
+
+th {
+    font-size: 1.2em;
+    text-align: center;
+    padding-left: 0;
+}
+
+th a {
+    display: inline;
+    position: relative;
+}
+
+th a:link, th a:visited, th a:active, th a:hover {
+    color: #333;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+th a:hover {
+    color: #000;
+}
+
+td a{
+    padding: 0;
+}
+
+td {
+    text-align: center;
+    padding: 1% 2em 1% 0em;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #f00;
+    font-weight: bold;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #e80c4d;
+    font-size: 1.1em;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/* info and errors */
+.message-info {
+    border: 1px solid;
+    clear: both;
+    padding: 10px 20px;
+}
+
+.message-error {
+    clear: both;
+    color: #e80c4d;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 20px 0 10px 0;
+}
+
+.message-success {
+    color: #7ac0da;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 20px 0 10px 0;
+}
+
+.error {
+    color: #e80c4d;
+}

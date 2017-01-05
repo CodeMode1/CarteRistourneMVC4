@@ -1,0 +1,53 @@
+﻿@model RistournePhase2App1.Models.Supporteur
+
+@{
+    ViewBag.Titre = " Entrez votre réponse à votre question de sécurité : ";
+}
+
+<h3>@ViewBag.Titre</h3>
+<h4>@ViewBag.repQuestionInvalide</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Réponse</legend>
+
+        <div class="editor-label">
+            <p>Votre @Html.LabelFor(model => model.Courriel) : </p> 
+        </div>
+
+        @Html.DisplayFor(model => model.Courriel)
+
+        <div class="editor-label">
+           <p>Votre question : </p>
+        </div>
+
+        @Html.DisplayFor(model => model.ChoixQuestion)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ReponseQuestion)
+        </div>
+
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ReponseQuestion)
+            @Html.ValidationMessageFor(model => model.ReponseQuestion)
+        </div>
+
+        <p>
+            <input type="submit" value="Vérifier" />
+        </p>
+
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Retourner à l'accueil", "Index", "Accueil")
+</div>
+
+
+@section Scripts {
+
+}
